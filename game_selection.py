@@ -7,29 +7,29 @@ class GameSelection:
     def __init__(self, master):
         self.master = master
         self.master.title("Game Selection")
-        configure_style()  # Apply common style
+        configure_style(self.master)
         self.create_game_selection_screen()
 
     def create_game_selection_screen(self):
-        self.game_label = ttk.Label(self.master, text="Select a game:")
-        self.game_label.grid(row=0, column=0)
+        frame = ttk.Frame(self.master)
+        frame.pack(expand = True, fill = 'both')
 
-        games = [("Candy Crush", self.start_game_1), ("Bejeweled", self.start_game_2)]
-        for i, (game_name, callback) in enumerate(games):
-            button = ttk.Button(self.master, text=game_name, command=lambda name=game_name: callback(name))
-            button.grid(row=i+1, column=0)
+        self.game_label = ttk.Label(frame, text = "Select a game:")
+        self.game_label.pack(pady = 10)
 
-    def start_game_1(self, game_name):
+        games = [("Candy Crush", lambda: self.start_game("Candy Crush")),
+                 ("Bejeweled", lambda: self.start_game("Bejeweled"))]
+
+        for game_name, callback in games:
+            button = ttk.Button(frame, text = game_name, command = callback)
+            button.pack(pady = 5)
+
+    def start_game(self, game_name):
         self.master.destroy()
         root = tk.Tk()
         login = Login(root, game_name)
         root.mainloop()
 
-    def start_game_2(self, game_name):
-        self.master.destroy()
-        root = tk.Tk()
-        login = Login(root, game_name)
-        root.mainloop()
 
 def main():
     root = tk.Tk()

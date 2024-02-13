@@ -8,9 +8,9 @@ class Game:
         self.game_name = game_name
         self.username1 = username1
         self.username2 = username2
-        configure_style()
+        configure_style(self.master)
         self.create_game_screen()
 
     def create_game_screen(self):
         self.label = tk.Label(self.master, text=f"Welcome {self.username1} and {self.username2} to {self.game_name}!")
-        self.label.pack()
+        self.label.pack(expand=True)
