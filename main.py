@@ -1,4 +1,4 @@
-import game
+import game_selection
 
 if __name__ == "__main__":
-    game.main()
+    game_selection.main()
