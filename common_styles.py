@@ -8,5 +8,7 @@ def configure_style(root):
 
     style.configure('TButton', font=('Helvetica', 12), padding=10)
 
+    style.configure('TEntry', font=('Helvetica', 12), padding=10)
+
     root.geometry("300x300")
 

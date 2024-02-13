@@ -1,7 +1,8 @@
 import tkinter as tk
 from common_styles import configure_style
-import bejeweled
-import candy_crush
+from games import bejeweled, candy_crush
+
+
 class Game:
     def __init__(self, master, game_name, username1, username2):
         self.master = master
