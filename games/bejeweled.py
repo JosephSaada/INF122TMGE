@@ -9,7 +9,7 @@ class BejeweledGame(BaseGame):
 
     def create_game_board(self):
         # Override the create_game_board method to customize Bejeweled game board UI
-        pass
+        super().create_game_board()
 
     def start_game(self):
         # Override the start_game method to implement Bejeweled game logic
