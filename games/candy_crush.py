@@ -3,8 +3,8 @@ from tkinter import ttk
 from base_game import BaseGame
 
 class CandyCrushGame(BaseGame):
-    def __init__(self, master):
-        super().__init__(master)
+    def __init__(self, master, username1, username2):
+        super().__init__(master, username1, username2)
         self.master.title("Candy Crush")
 
     def create_game_board(self):

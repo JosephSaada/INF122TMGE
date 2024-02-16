@@ -3,13 +3,15 @@ from tkinter import ttk
 import random
 
 class BaseGame:
-    def __init__(self, master):
+    def __init__(self, master, username1, username2):
         self.master = master
+        self.username1 = username1
+        self.username2 = username2
         self.master.title("Base Game")
         self.create_game_board()
         self.current_player = 1
         self.selected_cell = None
-        self.turn_label = ttk.Label(self.master, text="Player 1's Turn")
+        self.turn_label = ttk.Label(self.master, text=f"{username1}'s Turn")
         self.turn_label.pack()
 
     def handle_player_input(self, event):
@@ -55,9 +57,9 @@ class BaseGame:
 
     def update_turn_label(self):
         if self.current_player == 1:
-            self.turn_label.config(text="Player 1's Turn")
-        elif self.current_player == 2:
-            self.turn_label.config(text="Player 2's Turn")
+            self.turn_label.config(text=f"{self.username1}'s Turn")
+        else:
+            self.turn_label.config(text=f"{self.username2}'s Turn")
 
     def create_game_board(self):
         num_rows = 5

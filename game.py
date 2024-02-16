@@ -19,9 +19,9 @@ class Game:
         self.label.pack(expand = True)
 
         if self.game_name == "Candy Crush":
-            candy_crush_game = candy_crush.CandyCrushGame(self.master)
+            candy_crush_game = candy_crush.CandyCrushGame(self.master, self.username1, self.username2)
         elif self.game_name == "Bejeweled":
-            bejeweled_game = bejeweled.BejeweledGame(self.master)
+            bejeweled_game = bejeweled.BejeweledGame(self.master, self.username1, self.username2)
 
 
 
