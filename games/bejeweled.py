@@ -11,13 +11,7 @@ class BejeweledGame(BaseGame):
         # Override the create_game_board method to customize Bejeweled game board UI
         super().create_game_board()
 
-    def start_game(self):
-        # Override the start_game method to implement Bejeweled game logic
-        pass
 
-    def end_game(self):
-        # Override the end_game method to handle Bejeweled game ending
-        pass
 
 def main():
     root = tk.Tk()

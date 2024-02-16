@@ -10,5 +10,5 @@ def configure_style(root):
 
     style.configure('TEntry', font=('Helvetica', 12), padding=10)
 
-    root.geometry("300x300")
+    root.geometry("300x350")
 

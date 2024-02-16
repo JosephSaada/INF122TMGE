@@ -11,13 +11,6 @@ class CandyCrushGame(BaseGame):
         # Override the create_game_board method to customize Candy Crush game board UI
         super().create_game_board()
 
-    def start_game(self):
-        # Override the start_game method to implement Candy Crush game logic
-        pass
-
-    def end_game(self):
-        # Override the end_game method to handle Candy Crush game ending
-        pass
 
 def main():
     root = tk.Tk()

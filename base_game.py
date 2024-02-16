@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 import random
 
 class BaseGame:
@@ -8,56 +9,57 @@ class BaseGame:
         self.create_game_board()
         self.current_player = 1
         self.selected_cell = None
+        self.turn_label = ttk.Label(self.master, text="Player 1's Turn")
+        self.turn_label.pack()
 
     def handle_player_input(self, event):
-        # Get the canvas widget that triggered the event
         canvas = event.widget
-
-        # Get the row and column of the clicked cell
         row = int(canvas.grid_info()["row"])
         col = int(canvas.grid_info()["column"])
 
-        # Example: Handle mouse click event to select cell or piece
-        if self.current_player == 1:
-            # Player 1's turn: implement logic for player 1's actions
-            if self.selected_cell is None:
-                # If no cell is selected, store the clicked cell as the selected cell
-                self.selected_cell = (row, col)
-                print(f"Player 1 selected cell [{row}, {col}]")
-            else:
-                # If a cell is already selected, swap the pieces between the selected cell and the clicked cell
+        if self.selected_cell is None:
+            self.selected_cell = (row, col)
+            self.highlight_cell(canvas)
+        else:
+            if self.are_adjacent(self.selected_cell, (row, col)):
                 self.swap_pieces(self.selected_cell, (row, col))
-                # Reset the selected cell to None
+                self.unhighlight_cell()
                 self.selected_cell = None
-        elif self.current_player == 2:
-            # Player 2's turn: implement logic for player 2's actions
-            if self.selected_cell is None:
-                # If no cell is selected, store the clicked cell as the selected cell
-                self.selected_cell = (row, col)
-                print(f"Player 2 selected cell [{row}, {col}]")
             else:
-                # If a cell is already selected, swap the pieces between the selected cell and the clicked cell
-                self.swap_pieces(self.selected_cell, (row, col))
-                # Reset the selected cell to None
-                self.selected_cell = None
+                print("Selected cells are not adjacent. Please select an adjacent cell.")
+
+    def highlight_cell(self, canvas):
+        canvas.config(highlightbackground="red", highlightthickness=2)
+
+    def unhighlight_cell(self):
+        row, col = self.selected_cell
+        self.cells[row][col].config(highlightbackground="black", highlightthickness=1)
+
+    def are_adjacent(self, cell1, cell2):
+        row1, col1 = cell1
+        row2, col2 = cell2
+        return abs(row1 - row2) + abs(col1 - col2) == 1
 
     def swap_pieces(self, cell1, cell2):
-
         row1, col1 = cell1
         row2, col2 = cell2
 
         color1 = self.cells[row1][col1].itemcget(tk.ALL, "fill")
         color2 = self.cells[row2][col2].itemcget(tk.ALL, "fill")
 
-        self.cells[row1][col1].itemconfig(tk.ALL, fill = color2)
-        self.cells[row2][col2].itemconfig(tk.ALL, fill = color1)
+        self.cells[row1][col1].itemconfig(tk.ALL, fill=color2)
+        self.cells[row2][col2].itemconfig(tk.ALL, fill=color1)
 
         self.switch_player()
-        print(f"Swapping pieces between cells {cell1} and {cell2}")
+        self.update_turn_label()
 
+    def update_turn_label(self):
+        if self.current_player == 1:
+            self.turn_label.config(text="Player 1's Turn")
+        elif self.current_player == 2:
+            self.turn_label.config(text="Player 2's Turn")
 
     def create_game_board(self):
-        # Define the size of the game board (number of rows and columns)
         num_rows = 5
         num_cols = 5
         cell_size = 50
@@ -87,11 +89,7 @@ class BaseGame:
             self.current_player = 2
         else:
             self.current_player = 1
-    def start_game(self):
-        pass
 
-    def end_game(self):
-        pass
 
 def main():
     root = tk.Tk()
