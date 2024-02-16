@@ -4,12 +4,13 @@ from base_game import BaseGame
 
 class CandyCrushGame(BaseGame):
     def __init__(self, master, username1, username2):
-        super().__init__(master, username1, username2)
+        self.colors = ["red", "blue", "green", "yellow", "orange"]
+        super().__init__(master, username1, username2, self.colors)
         self.master.title("Candy Crush")
 
-    def create_game_board(self):
-        # Override the create_game_board method to customize Candy Crush game board UI
-        super().create_game_board()
+    # def create_game_board(self):
+    #     # Override the create_game_board method to customize Candy Crush game board UI
+    #     super().create_game_board()
 
 
 def main():
