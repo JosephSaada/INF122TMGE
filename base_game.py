@@ -3,15 +3,18 @@ from tkinter import ttk
 import random
 
 class BaseGame:
-    def __init__(self, master, username1, username2, colors):
+    def __init__(self, master, username1, username2):
         self.master = master
         self.username1 = username1
         self.username2 = username2
         self.master.title("Base Game")
-        self.create_game_board(colors)
         self.current_player = 1
         self.selected_cell = None
-        self.turn_label = ttk.Label(self.master, text=f"{username1}'s Turn")
+
+    def set_colors(self, colors):
+        self.colors = colors
+        self.create_game_board()
+        self.turn_label = ttk.Label(self.master, text = f"{self.username1}'s Turn")
         self.turn_label.pack()
 
     def handle_player_input(self, event):
@@ -61,7 +64,7 @@ class BaseGame:
         else:
             self.turn_label.config(text=f"{self.username2}'s Turn")
 
-    def create_game_board(self, colors):
+    def create_game_board(self):
         num_rows = 5
         num_cols = 5
         cell_size = 50
@@ -70,8 +73,6 @@ class BaseGame:
         self.board_frame.pack()
 
         self.cells = []
-
-        #colors = ["red", "blue", "green", "yellow", "orange"]
 
         for i in range(num_rows):
             row = []
@@ -82,7 +83,7 @@ class BaseGame:
                 cell.grid(row=i, column=j)
                 cell.bind("<Button-1>", self.handle_player_input)
                 row.append(cell)
-                color = random.choice(colors)
+                color = random.choice(self.colors)
                 cell.create_rectangle(2, 2, cell_size-2, cell_size-2, fill=color, outline="")
             self.cells.append(row)
 
@@ -95,7 +96,7 @@ class BaseGame:
 
 def main():
     root = tk.Tk()
-    base_game = BaseGame(root)
+    base_game = BaseGame(root, "Player 1", "Player 2")
     root.mainloop()
 
 if __name__ == "__main__":
