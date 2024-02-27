@@ -6,7 +6,7 @@ class BejeweledGame(BaseGame):
     def __init__(self, master, username1, username2):
         super().__init__(master, username1, username2)
         self.master.title("Candy Crush")
-        self.set_colors(["black", "white", "pink", "brown", "grey"])
+        #self.set_colors(["black", "white", "pink", "brown", "grey"])
 
 def main():
     root = tk.Tk()
