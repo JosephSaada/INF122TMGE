@@ -1,10 +1,11 @@
 import tkinter as tk
 from tkinter import ttk
 import random
+from renderable import Renderable
 
-class BaseGame:
+class BaseGame(Renderable):
     def __init__(self, master, username1, username2):
-        self.master = master
+        super(BaseGame, self).__init__(master)
         self.username1 = username1
         self.username2 = username2
         self.master.title("Base Game")
@@ -92,12 +93,3 @@ class BaseGame:
             self.current_player = 2
         else:
             self.current_player = 1
-
-
-def main():
-    root = tk.Tk()
-    base_game = BaseGame(root, "Player 1", "Player 2")
-    root.mainloop()
-
-if __name__ == "__main__":
-    main()

@@ -1,16 +1,20 @@
 import tkinter as tk
 from common_styles import configure_style
 from games import bejeweled, candy_crush
+from renderable import Renderable
 
 
-class Game:
+class Game(Renderable):
     def __init__(self, master, game_name, username1, username2):
-        self.master = master
+        super(Game, self).__init__(master)
         self.master.title(game_name)
         self.game_name = game_name
         self.username1 = username1
         self.username2 = username2
         configure_style(self.master)
+    
+    def render(self):
+        self.clear_screen()
         self.create_game_screen()
 
     def create_game_screen(self):
