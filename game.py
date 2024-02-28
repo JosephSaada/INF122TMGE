@@ -25,7 +25,7 @@ class Game(Renderable):
         self.label.pack(expand = True)
 
         if self.game_name == "Candy Crush":
-            candy_crush_game = candy_crush.CandyCrushGame(self.master, self.username1, self.username2, ["red", "blue", "green", "yellow", "orange", "purple"] ,CandyCrushMatchingAlgorithm(), CandyCrushAddingAlgorithm())
+            candy_crush_game = candy_crush.CandyCrushGame(self.master, self.username1, self.username2)
             candy_crush_game.render()
         elif self.game_name == "Bejeweled":
             bejeweled_game = bejeweled.BejeweledGame(self.master, self.username1, self.username2)
