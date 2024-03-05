@@ -20,7 +20,8 @@ class GameSelection(Renderable):
         self.game_label = ttk.Label(frame, text = "Select a game:")
         self.game_label.pack(pady = 10)
 
-        games = [("Candy Crush", lambda: self.start_game("Candy Crush")),
+        games = [("Base Game", lambda: self.start_game("Base Game")),
+                 ("Candy Crush", lambda: self.start_game("Candy Crush")),
                  ("Bejeweled", lambda: self.start_game("Bejeweled"))]
 
         for game_name, callback in games:

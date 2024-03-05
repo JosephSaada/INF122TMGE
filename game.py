@@ -4,6 +4,7 @@ from games import bejeweled, candy_crush
 from renderable import Renderable
 from algorithms.adding_algorithms.candy_crush_adding_algorithm import CandyCrushAddingAlgorithm
 from algorithms.matching_algorithms.candy_crush_matching_algorithm import CandyCrushMatchingAlgorithm
+from base_game import BaseGame
 
 
 class Game(Renderable):
@@ -30,6 +31,9 @@ class Game(Renderable):
         elif self.game_name == "Bejeweled":
             bejeweled_game = bejeweled.BejeweledGame(self.master, self.username1, self.username2)
             bejeweled_game.render()
+        elif self.game_name == "Base Game":
+            base_game = BaseGame(self.master, self.username1, self.username2)
+            base_game.render()
 
 
 

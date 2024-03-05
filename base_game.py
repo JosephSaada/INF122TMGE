@@ -5,9 +5,11 @@ from renderable import Renderable
 from board import Board
 import tiles
 from  tiles_color_dict import TilesColorDict
+from algorithms.adding_algorithms.base_adding_algorithm import BaseAddingAlgorithm
+from algorithms.matching_algorithms.base_matching_algorithm import BaseMatchingAlgorithm
 
 class BaseGame(Renderable):
-    def __init__(self, master, username1, username2, tileSet, matching_algorithm=None, add_tiles_algorithm=None):
+    def __init__(self, master, username1, username2, tileSet=["red", "blue", "green", "yellow", "orange", "purple"], matching_algorithm=BaseMatchingAlgorithm(), add_tiles_algorithm=BaseAddingAlgorithm()):
         super(BaseGame, self).__init__(master)
         self.username1 = username1
         self.username2 = username2
@@ -22,6 +24,12 @@ class BaseGame(Renderable):
         self.board_frame = ttk.Frame(self.master)
         self.board_frame.pack()
         self.add_tiles_algorithm.add(self.board)
+        self.playerOneScore = 0
+        self.playerTwoScore = 0
+        self.turn_label = ttk.Label(self.master)
+        self.turn_label.pack()
+        self.score_label = ttk.Label(self.master)
+        self.score_label.pack()
     
     def clear_board(self):
         for i in self.board_frame.winfo_children():
@@ -32,8 +40,8 @@ class BaseGame(Renderable):
         self.render_game_board()
     
     def create_label(self):
-        self.turn_label = ttk.Label(self.master, text = f"{self.username1}'s Turn")
-        self.turn_label.pack()
+        self.turn_label.config(text=f"{self.username1}'s Turn")
+        self.score_label.config(text=f"{self.username1}: {self.playerOneScore} {self.username2}: {self.playerTwoScore}")
 
     # modify here to avoid using self.cells to avoid bug
     def handle_player_input(self, event):
@@ -76,8 +84,13 @@ class BaseGame(Renderable):
         self.board.board[row1][col1] = self.board.board[row2][col2]
         self.board.board[row2][col2] = temp
 
-        self.matching_algorithm.match(self.board)
-        self.add_tiles_algorithm.add(self.board)
+        baseMatchScore = self.matching_algorithm.match(self.board)
+        addScore = self.add_tiles_algorithm.add(self.board)
+
+        if self.current_player == 1:
+            self.playerOneScore += baseMatchScore + addScore
+        else:
+            self.playerTwoScore += baseMatchScore + addScore
 
         self.render()
 
