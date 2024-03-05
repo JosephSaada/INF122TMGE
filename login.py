@@ -2,13 +2,17 @@ import tkinter as tk
 from tkinter import ttk
 from game import Game
 from common_styles import configure_style
+from renderable import Renderable
 
-class Login:
+class Login(Renderable):
     def __init__(self, master, game_name):
-        self.master = master
+        super(Login, self).__init__(master)
         self.master.title("Login - " + game_name)
         self.game_name = game_name
         configure_style(self.master)
+
+    def render(self):
+        self.clear_screen()
         self.create_login_screen()
 
     def create_login_screen(self):
@@ -46,8 +50,5 @@ class Login:
         if not username2:
             username2 = "user2"
 
-        self.master.destroy()
-
-        root = tk.Tk()
-        game = Game(root, self.game_name, username1, username2)
-        root.mainloop()
+        game = Game(self.master, self.game_name, username1, username2)
+        game.render()
