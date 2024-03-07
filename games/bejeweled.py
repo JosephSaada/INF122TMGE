@@ -5,7 +5,7 @@ from base_game import BaseGame
 class BejeweledGame(BaseGame):
     def __init__(self, master, username1, username2):
         super().__init__(master, username1, username2)
-        self.master.title("Candy Crush")
+        self.master.title("Bejeweled")
         #self.set_colors(["black", "white", "pink", "brown", "grey"])
 
 def main():
