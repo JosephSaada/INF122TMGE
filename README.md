@@ -8,7 +8,8 @@ The game instructions are as follow:
 
 A user can run the game and first select which tile matching game they would like to play. 
 After that they are prompted with the option of logging in to have play names. This is optional and users can just hit login to get default usernames. 
-The selected game then opens up. Users alternate turns and aim to get 3 tiles in a row. Once 3 tiles are in row, those tiles will be automatically removed and the player who made that move will be rewarded points. 
+The selected game then opens up. Users alternate turns and aim to get 3 tiles in a row. 
+Once 3 tiles are in row, those tiles will be automatically removed and the player who made that move will be rewarded points. 
 
 This is where the game begins to differ: 
 
