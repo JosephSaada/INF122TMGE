@@ -2,4 +2,4 @@ from algorithms.matching_algorithms.base_matching_algorithm import BaseMatchingA
 
 class CandyCrushMatchingAlgorithm(BaseMatchingAlgorithm):
     def match(self, board):
-        return 0
+        return super().match(board)
