@@ -19,6 +19,9 @@ class BaseMatchingAlgorithm:
         for i in range(board.row):
             for j in range(board.col):
                 if board.score_board[i][j] > 0:
-                    total_score += 10 * (2 ^ board.score_board[i][j])
+                    if board.board[i][j].type == "black":
+                        total_score += 150  # Assuming 150 for special black tile matches
+                    else:
+                        total_score += 10 * (2 ^ board.score_board[i][j])
                     board.board[i][j].type = "empty"
         return total_score
