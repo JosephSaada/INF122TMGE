@@ -9,7 +9,7 @@ The game instructions are as follow:
 1. A user can run the game and first select which tile matching game they would like to play. 
 2. After that they are prompted with the option of logging in to have play names. This is optional and users can just hit login to get default usernames. 
 3. The selected game then opens up. Users alternate turns and aim to get 3 tiles in a row.
-4. You can select a tile and then select it to swap with any adjacent tile. If you selected the wrong tile you can press it again to unselect it.
+4. You can select a tile and then select another tile to swap with any adjacent tile. If you selected the wrong tile you can press it again to unselect it.
 5. Once 3 tiles are in row, those tiles will be automatically removed and the player who made that move will be rewarded points. 
 
 This is where the game begins to differ: 
