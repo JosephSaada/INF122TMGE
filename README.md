@@ -12,8 +12,6 @@ The game instructions are as follow:
 4. You can select a tile and then select any adjacent tile to swap it. If you selected the wrong tile you can press it again to unselect it.
 5. Once 3 tiles are in row, those tiles will be automatically removed and the player who made that move will be rewarded points. 
 
-This is where the game begins to differ: 
+This is where the game begins to differ please view the documentation: 
 
-For Bejeweled the game ends when  
-
-For Candy Crush the game ends when
+https://docs.google.com/document/d/14tcZFVN-MAL-KsDLrY82ryrSSZWm-CMvDCa9TSAHHvo/edit?usp=sharing 
