@@ -1,8 +1,8 @@
 Hello we are group 8 and welcome to our TMGE.  
 
-We made our project in Python 3.10.2 using Tkinter. 
+We made our project in Python 3.10.2 using Tkinter. To run the game jsut download the zip and run main.py. 
 
-This is our UML diagram as well as our description and brief documentation: https://lucid.app/lucidchart/327d76cc-e3c6-490d-8272-3098815d8a64/edit?viewport_loc=-5364%2C-2095%2C6936%2C3165%2C0_0&invitationId=inv_2cf37f74-2227-4f25-a2bf-47b2c2b9dfe2 
+This is our UML diagram: https://lucid.app/lucidchart/327d76cc-e3c6-490d-8272-3098815d8a64/edit?viewport_loc=-5364%2C-2095%2C6936%2C3165%2C0_0&invitationId=inv_2cf37f74-2227-4f25-a2bf-47b2c2b9dfe2 
 
 The game instructions are as follow: 
 
