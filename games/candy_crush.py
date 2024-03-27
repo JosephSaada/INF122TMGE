@@ -6,8 +6,9 @@ from algorithms.matching_algorithms.candy_crush_matching_algorithm import CandyC
 
 class CandyCrushGame(BaseGame):
     def __init__(self, master, username1, username2):
-        tileSet = ["red", "blue", "green", "yellow", "orange", "purple"]
-        matching_algorithm = CandyCrushMatchingAlgorithm()
-        adding_algorithm = CandyCrushAddingAlgorithm()
-        super().__init__(master, username1, username2, tileSet, matching_algorithm, adding_algorithm)
+        #tileSet = ["red", "blue", "green", "yellow", "orange", "purple"]
+        # matching_algorithm = CandyCrushMatchingAlgorithm()
+        # adding_algorithm = CandyCrushAddingAlgorithm()
+        # super().__init__(master, username1, username2, tileSet, matching_algorithm, adding_algorithm)
+        super().__init__(master, username1, username2)
         self.master.title("Candy Crush")
